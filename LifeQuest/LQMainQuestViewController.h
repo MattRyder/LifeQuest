@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LQMainQuestViewController : UIViewController
+@interface LQMainQuestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSMutableArray* _questsThisWeek;
+    NSMutableArray* _questsThisMonth;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *mainQuestTableView;
 
 @end

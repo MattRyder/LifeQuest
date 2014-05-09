@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */; };
 		C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582376191BC76C006ECC24 /* LQFriendsViewController.m */; };
+		C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958237C191C30C7006ECC24 /* CoreData.framework */; };
+		C9582380191C3116006ECC24 /* LifeQuest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */; };
+		C99E4469191C3D9900588617 /* Quest.m in Sources */ = {isa = PBXBuildFile; fileRef = C99E4468191C3D9900588617 /* Quest.m */; };
 		C9EA1ADE1918832900CD164B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EA1ADD1918832900CD164B /* Foundation.framework */; };
 		C9EA1AE01918832900CD164B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EA1ADF1918832900CD164B /* CoreGraphics.framework */; };
 		C9EA1AE21918832900CD164B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EA1AE11918832900CD164B /* UIKit.framework */; };
@@ -24,6 +27,7 @@
 		C9EA1B0D1918846100CD164B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */; };
 		C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */; };
 		C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */; };
+		C9FE791D191D43A4006E4645 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791C191D43A4006E4645 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,10 @@
 		C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQNearbyQuestViewController.m; sourceTree = "<group>"; };
 		C9582375191BC76C006ECC24 /* LQFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFriendsViewController.h; sourceTree = "<group>"; };
 		C9582376191BC76C006ECC24 /* LQFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQFriendsViewController.m; sourceTree = "<group>"; };
+		C958237C191C30C7006ECC24 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C958237F191C3116006ECC24 /* LifeQuest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LifeQuest.xcdatamodel; sourceTree = "<group>"; };
+		C99E4468191C3D9900588617 /* Quest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Quest.m; path = Models/Quest.m; sourceTree = "<group>"; };
+		C99E446A191C3DDE00588617 /* Quest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Quest.h; path = Models/Quest.h; sourceTree = "<group>"; };
 		C9EA1ADA1918832900CD164B /* LifeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EA1ADD1918832900CD164B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9EA1ADF1918832900CD164B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -62,6 +70,8 @@
 		C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQRegisterViewController.m; path = LifeQuest/LQRegisterViewController.m; sourceTree = SOURCE_ROOT; };
 		C9EA1B11191884AF00CD164B /* LQMainQuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQMainQuestViewController.h; path = LifeQuest/LQMainQuestViewController.h; sourceTree = SOURCE_ROOT; };
 		C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQMainQuestViewController.m; path = LifeQuest/LQMainQuestViewController.m; sourceTree = SOURCE_ROOT; };
+		C9FE791B191D43A4006E4645 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
+		C9FE791C191D43A4006E4645 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */,
 				C9EA1AE01918832900CD164B /* CoreGraphics.framework in Frameworks */,
 				C9EA1AE21918832900CD164B /* UIKit.framework in Frameworks */,
 				C9EA1ADE1918832900CD164B /* Foundation.framework in Frameworks */,
@@ -88,6 +99,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9582378191C164B006ECC24 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C99E446A191C3DDE00588617 /* Quest.h */,
+				C99E4468191C3D9900588617 /* Quest.m */,
+				C9FE791B191D43A4006E4645 /* User.h */,
+				C9FE791C191D43A4006E4645 /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C9EA1AD11918832900CD164B = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +132,7 @@
 		C9EA1ADC1918832900CD164B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C958237C191C30C7006ECC24 /* CoreData.framework */,
 				C9EA1ADD1918832900CD164B /* Foundation.framework */,
 				C9EA1ADF1918832900CD164B /* CoreGraphics.framework */,
 				C9EA1AE11918832900CD164B /* UIKit.framework */,
@@ -130,7 +153,9 @@
 				C9EA1B0E191884A200CD164B /* LQRegisterViewController.h */,
 				C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */,
 				C9EA1AEF1918832900CD164B /* Images.xcassets */,
+				C9582378191C164B006ECC24 /* Models */,
 				C9EA1AE41918832900CD164B /* Supporting Files */,
+				C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */,
 				C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */,
 			);
 			path = LifeQuest;
@@ -139,10 +164,10 @@
 		C9EA1AE41918832900CD164B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C9EA1AEC1918832900CD164B /* LQAppDelegate.h */,
 				C9EA1AED1918832900CD164B /* LQAppDelegate.m */,
-				C9EA1AE51918832900CD164B /* LifeQuest-Info.plist */,
+				C9EA1AEC1918832900CD164B /* LQAppDelegate.h */,
 				C9EA1AE61918832900CD164B /* InfoPlist.strings */,
+				C9EA1AE51918832900CD164B /* LifeQuest-Info.plist */,
 				C9EA1AE91918832900CD164B /* main.m */,
 				C9EA1AEB1918832900CD164B /* LifeQuest-Prefix.pch */,
 			);
@@ -264,12 +289,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9582380191C3116006ECC24 /* LifeQuest.xcdatamodeld in Sources */,
 				C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */,
+				C9FE791D191D43A4006E4645 /* User.m in Sources */,
 				C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */,
 				C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */,
 				C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */,
 				C9EA1AEA1918832900CD164B /* main.m in Sources */,
 				C9EA1AEE1918832900CD164B /* LQAppDelegate.m in Sources */,
+				C99E4469191C3D9900588617 /* Quest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +423,7 @@
 				GCC_PREFIX_HEADER = "LifeQuest/LifeQuest-Prefix.pch";
 				INFOPLIST_FILE = "LifeQuest/LifeQuest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,6 +438,7 @@
 				GCC_PREFIX_HEADER = "LifeQuest/LifeQuest-Prefix.pch";
 				INFOPLIST_FILE = "LifeQuest/LifeQuest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -486,6 +516,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C958237F191C3116006ECC24 /* LifeQuest.xcdatamodel */,
+			);
+			currentVersion = C958237F191C3116006ECC24 /* LifeQuest.xcdatamodel */;
+			path = LifeQuest.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C9EA1AD21918832900CD164B /* Project object */;
 }
