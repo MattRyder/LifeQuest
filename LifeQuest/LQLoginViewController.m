@@ -44,10 +44,25 @@
     NSArray *matchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if ([matchedObjects count] == 0) {
+        
+        // Ok, maybe they're logging in on a new device? Let's query the JSON API for this user:
+        LQAPIManager *apiManager = [[LQAPIManager alloc] init];
+        NSDictionary *userData = [apiManager queryUserInfoWithUser:self.textUsernameField.text andPassword:hashedPassword];
+        
+        // If we've got a user, lets store it locally:
+        if (userData != nil) {
+            User *storedUser = (User*)[NSEntityDescription
+                                    insertNewObjectForEntityForName:@"User"
+                                    inManagedObjectContext:[self managedObjectContext]];
+            storedUser.username = [userData objectForKey:@"username"];
+            storedUser.password = [userData objectForKey:@"password"];
+            storedUser.email = [userData objectForKey:@"email"];
+            storedUser.experience_points = [userData objectForKey:@"experience_points"];
+        }
+        
         [LQUtility showAlert:@"Login Failed" andMessage:@"Please check the username and password, and try again." andCancelTitle:@"OK"];
     } else {
         matchedUser = [matchedObjects objectAtIndex:0];
-        [LQUtility showAlert:@"HAVE A USER!" andMessage:@"FOUND!" andCancelTitle:@"WOO!"];
         userLoggedIn = true;
     }
 }

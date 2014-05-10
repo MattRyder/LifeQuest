@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSNumber * experience_points;
 
 @end

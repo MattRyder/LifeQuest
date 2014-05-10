@@ -27,6 +27,7 @@
 		C9EA1B0D1918846100CD164B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */; };
 		C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */; };
 		C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */; };
+		C9F3E5F7191E585100CEBDCA /* LQAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F3E5F6191E585100CEBDCA /* LQAPIManager.m */; };
 		C9FE791D191D43A4006E4645 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791C191D43A4006E4645 /* User.m */; };
 		C9FE7920191DA1B7006E4645 /* LQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */; };
 		C9FE7923191DB64A006E4645 /* LQUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE7922191DB64A006E4645 /* LQUtility.m */; };
@@ -73,6 +74,8 @@
 		C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQRegisterViewController.m; path = LifeQuest/LQRegisterViewController.m; sourceTree = SOURCE_ROOT; };
 		C9EA1B11191884AF00CD164B /* LQMainQuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LQMainQuestViewController.h; path = LifeQuest/LQMainQuestViewController.h; sourceTree = SOURCE_ROOT; };
 		C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQMainQuestViewController.m; path = LifeQuest/LQMainQuestViewController.m; sourceTree = SOURCE_ROOT; };
+		C9F3E5F5191E585100CEBDCA /* LQAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQAPIManager.h; sourceTree = "<group>"; };
+		C9F3E5F6191E585100CEBDCA /* LQAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQAPIManager.m; sourceTree = "<group>"; };
 		C9FE791B191D43A4006E4645 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
 		C9FE791C191D43A4006E4645 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 		C9FE791E191DA1B7006E4645 /* LQLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQLoginViewController.h; sourceTree = "<group>"; };
@@ -163,15 +166,12 @@
 				C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */,
 				C9EA1B0E191884A200CD164B /* LQRegisterViewController.h */,
 				C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */,
-				C9FE7921191DB64A006E4645 /* LQUtility.h */,
-				C9FE7922191DB64A006E4645 /* LQUtility.m */,
 				C9EA1AEF1918832900CD164B /* Images.xcassets */,
+				C9F3E5F8191E585800CEBDCA /* Helper Classes */,
 				C9582378191C164B006ECC24 /* Models */,
 				C9EA1AE41918832900CD164B /* Supporting Files */,
 				C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */,
 				C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */,
-				C9FE7924191DBD92006E4645 /* LQViewController.h */,
-				C9FE7925191DBD92006E4645 /* LQViewController.m */,
 			);
 			path = LifeQuest;
 			sourceTree = "<group>";
@@ -205,6 +205,19 @@
 				C9EA1AFF1918832900CD164B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9F3E5F8191E585800CEBDCA /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C9FE7921191DB64A006E4645 /* LQUtility.h */,
+				C9FE7922191DB64A006E4645 /* LQUtility.m */,
+				C9FE7924191DBD92006E4645 /* LQViewController.h */,
+				C9FE7925191DBD92006E4645 /* LQViewController.m */,
+				C9F3E5F5191E585100CEBDCA /* LQAPIManager.h */,
+				C9F3E5F6191E585100CEBDCA /* LQAPIManager.m */,
+			);
+			name = "Helper Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F3E5F7191E585100CEBDCA /* LQAPIManager.m in Sources */,
 				C9582380191C3116006ECC24 /* LifeQuest.xcdatamodeld in Sources */,
 				C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */,
 				C9FE791D191D43A4006E4645 /* User.m in Sources */,

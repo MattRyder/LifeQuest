@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
-#import "LQUtility.h"
-#import "Quest.h"
-#import "User.h"
 #import "LQMainQuestViewController.h"
+#import "LQAPIManager.h"
+#import "Quest.h"
+
 
 @interface LQRegisterViewController : LQViewController <NSFetchedResultsControllerDelegate> {
     UITextField *activeField;

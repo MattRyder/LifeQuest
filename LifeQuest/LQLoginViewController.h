@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
-#import "LQUtility.h"
 #import "LQRegisterViewController.h"
+#import "LQAPIManager.h"
 
 @interface LQLoginViewController : LQViewController {
     UITextField *activeField;

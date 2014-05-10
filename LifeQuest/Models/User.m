@@ -14,5 +14,6 @@
 @dynamic email;
 @dynamic password;
 @dynamic username;
+@dynamic experience_points;
 
 @end

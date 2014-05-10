@@ -47,6 +47,7 @@
     
     newUser.username = self.textUsername.text;
     newUser.email = self.textEmailAddress.text;
+    newUser.experience_points = 0;
     
     // Ensure that no fields are left blank:
     for (UITextField *textField in registrationElements) {
@@ -94,32 +95,8 @@
         [mainController setUser:self.registeredUser];
         
         // async the user's data back to the web service:
-        [self postRegisteredUser];
-    }
-}
-
-// Commit the new user to the web service:
-- (void)postRegisteredUser
-{
-    NSError *error;
-    NSDictionary *userDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        self.registeredUser.username, @"username",
-                                        self.registeredUser.password, @"password",
-                                        self.registeredUser.email, @"email", nil];
-                                         
-    
-    NSURL *postUrl = [NSURL URLWithString:@"http://localhost:3000/api/users"];
-    NSMutableURLRequest *webRequest = [[NSMutableURLRequest alloc] initWithURL:postUrl];
-    NSData *webRequestData = [NSJSONSerialization dataWithJSONObject:userDataDictionary options:0 error:&error];
-    NSString *requestDataLength = [NSString stringWithFormat:@"%d", [webRequestData length]];
-    
-    if(!error) {
-        [webRequest setHTTPMethod:@"POST"];
-        [webRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [webRequest setValue:requestDataLength forHTTPHeaderField:@"Content-Length"];
-        [webRequest setHTTPBody: webRequestData];
-        
-        [NSURLConnection connectionWithRequest:webRequest delegate:self];
+        LQAPIManager *apiManager = [[LQAPIManager alloc] init];
+        [apiManager postRegisteredUser:self.registeredUser];
     }
 }
 
