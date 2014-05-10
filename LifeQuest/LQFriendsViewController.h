@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQViewController.h"
 
-@interface LQFriendsViewController : UIViewController
+@interface LQFriendsViewController : LQViewController
 
 @end

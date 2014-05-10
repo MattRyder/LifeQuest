@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQViewController.h"
 
-@interface LQNearbyQuestViewController : UIViewController
+@interface LQNearbyQuestViewController : LQViewController
 
 @end

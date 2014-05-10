@@ -7,10 +7,9 @@
 //
 
 #import "LQMainQuestViewController.h"
-#import "Quest.h"
 
 @interface LQMainQuestViewController ()
-- (void) setupQuestTable;
+
 @end
 
 @implementation LQMainQuestViewController
@@ -20,19 +19,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // Load up the username and total XP in the header:
+    self.headerUsernameLabel.text = [NSString stringWithFormat:@"Hello, %@!", self.currentUser.username];
+    self.headerExperienceLabel.text = [NSString stringWithFormat:@"You have %d Experience Points.", 125];
+    
     // Load the purple tiled background image in the header view:
-    UIImage* purpleTile = [UIImage imageNamed:@"purple-tile.png"];
-    UIView* headerView = [self.view viewWithTag:1];
-    headerView.backgroundColor = [UIColor colorWithPatternImage:purpleTile];
-    
-    //[self setupQuestTable];
-    
+    [self setPurpleBackground:1];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 // Get a cell at a section and row of the Quest Table
@@ -105,22 +102,16 @@
     return rows;
 }
 
+- (void)setUser:(User *)currentUser
+{
+    self.currentUser = currentUser;
+}
+
 
 // Load all the data from the JSON/static data, whatever here
 - (void) setupQuestTable
 {
-    // Get some test data in the table:
-    _questsThisWeek = [[NSMutableArray alloc] initWithObjects:
-                       [[Quest alloc] initWithTitle:@"Chocaholic" andDescription:@"Go to Chockywocky five times this week" andExperience:@35],
-                       [[Quest alloc] initWithTitle:@"Action Man" andDescription:@"Go buy something from the shops sooner" andExperience:@20],
-                       [[Quest alloc] initWithTitle:@"Goober" andDescription:@"Stop being a Goober for like, one day, man" andExperience:@90],
-                       nil];
-    
-    _questsThisMonth = [[NSMutableArray alloc] initWithObjects:
-                        [[Quest alloc] initWithTitle:@"Chocaholic" andDescription:@"Go to Chockywocky five times this week" andExperience:@35],
-                        [[Quest alloc] initWithTitle:@"Action Man" andDescription:@"Go buy something from the shops sooner" andExperience:@20],
-                        [[Quest alloc] initWithTitle:@"Goober" andDescription:@"Stop being a Goober for like, one day, man" andExperience:@90],
-                        nil];
+
 }
 
 @end

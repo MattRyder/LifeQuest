@@ -28,6 +28,9 @@
 		C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */; };
 		C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */; };
 		C9FE791D191D43A4006E4645 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791C191D43A4006E4645 /* User.m */; };
+		C9FE7920191DA1B7006E4645 /* LQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */; };
+		C9FE7923191DB64A006E4645 /* LQUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE7922191DB64A006E4645 /* LQUtility.m */; };
+		C9FE7926191DBD92006E4645 /* LQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE7925191DBD92006E4645 /* LQViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,12 @@
 		C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQMainQuestViewController.m; path = LifeQuest/LQMainQuestViewController.m; sourceTree = SOURCE_ROOT; };
 		C9FE791B191D43A4006E4645 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
 		C9FE791C191D43A4006E4645 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
+		C9FE791E191DA1B7006E4645 /* LQLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQLoginViewController.h; sourceTree = "<group>"; };
+		C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQLoginViewController.m; sourceTree = "<group>"; };
+		C9FE7921191DB64A006E4645 /* LQUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQUtility.h; sourceTree = "<group>"; };
+		C9FE7922191DB64A006E4645 /* LQUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQUtility.m; sourceTree = "<group>"; };
+		C9FE7924191DBD92006E4645 /* LQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQViewController.h; sourceTree = "<group>"; };
+		C9FE7925191DBD92006E4645 /* LQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +153,8 @@
 		C9EA1AE31918832900CD164B /* LifeQuest */ = {
 			isa = PBXGroup;
 			children = (
+				C9FE791E191DA1B7006E4645 /* LQLoginViewController.h */,
+				C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */,
 				C9582375191BC76C006ECC24 /* LQFriendsViewController.h */,
 				C9582376191BC76C006ECC24 /* LQFriendsViewController.m */,
 				C9582372191BC75B006ECC24 /* LQNearbyQuestViewController.h */,
@@ -152,11 +163,15 @@
 				C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */,
 				C9EA1B0E191884A200CD164B /* LQRegisterViewController.h */,
 				C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */,
+				C9FE7921191DB64A006E4645 /* LQUtility.h */,
+				C9FE7922191DB64A006E4645 /* LQUtility.m */,
 				C9EA1AEF1918832900CD164B /* Images.xcassets */,
 				C9582378191C164B006ECC24 /* Models */,
 				C9EA1AE41918832900CD164B /* Supporting Files */,
 				C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */,
 				C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */,
+				C9FE7924191DBD92006E4645 /* LQViewController.h */,
+				C9FE7925191DBD92006E4645 /* LQViewController.m */,
 			);
 			path = LifeQuest;
 			sourceTree = "<group>";
@@ -294,10 +309,13 @@
 				C9FE791D191D43A4006E4645 /* User.m in Sources */,
 				C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */,
 				C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */,
+				C9FE7926191DBD92006E4645 /* LQViewController.m in Sources */,
+				C9FE7920191DA1B7006E4645 /* LQLoginViewController.m in Sources */,
 				C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */,
 				C9EA1AEA1918832900CD164B /* main.m in Sources */,
 				C9EA1AEE1918832900CD164B /* LQAppDelegate.m in Sources */,
 				C99E4469191C3D9900588617 /* Quest.m in Sources */,
+				C9FE7923191DB64A006E4645 /* LQUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

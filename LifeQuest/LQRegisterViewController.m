@@ -7,17 +7,13 @@
 //
 
 #import "LQRegisterViewController.h"
-#import "User.h"
-#import <CommonCrypto/CommonDigest.h>
+
 
 @interface LQRegisterViewController ()
 
 @end
 
 @implementation LQRegisterViewController
-
-@synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -32,7 +28,7 @@
     // Register the view to grab keyboard notifications:
     [self registerForKeyboardNotification];
     
-    // Load the purple tiled background image:
+    // Load the purple tiled background image, full-sized:
     UIImage* purpleTile = [UIImage imageNamed:@"purple-tile.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:purpleTile];
 }
@@ -41,13 +37,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void) showAlert:(NSString *)title andMessage:(NSString *)message andCancelTitle:(NSString *)cancelTitle
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message
-                                              delegate:nil cancelButtonTitle:cancelTitle otherButtonTitles:nil, nil];
-    [alert show];
 }
 
 - (IBAction)registerButtonPressed:(id)sender
@@ -62,40 +51,28 @@
     // Ensure that no fields are left blank:
     for (UITextField *textField in registrationElements) {
         if ([textField.text isEqualToString:@""]) {
-            [self showAlert:@"Empty Field" andMessage:[NSString stringWithFormat:@"%@ is required to be entered.", textField.placeholder] andCancelTitle:@"OK"];
+            [LQUtility showAlert:@"Empty Field" andMessage:[NSString stringWithFormat:@"%@ is required to be entered.", textField.placeholder] andCancelTitle:@"OK"];
             return;
         }
     }
     
     // If the passwords are okay, SHA-1 it and store it in the CD object:
     if ([self.textPassword.text isEqualToString:self.textPasswordConfirm.text]) {
-        NSData *passwordData = [self.textPassword.text dataUsingEncoding:NSUTF8StringEncoding];
-        uint8_t hashDigest[CC_SHA1_DIGEST_LENGTH];
-        
-        CC_SHA1(passwordData.bytes, passwordData.length, hashDigest);
-        NSMutableString *hashedPass = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH];
-        
-        // Write out the digest to a string that we can shove into Core Data / remote database:
-        for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
-            [hashedPass appendFormat:@"%02x", hashDigest[i]];
-        }
-        
-        newUser.password = hashedPass;
+        newUser.password = [LQUtility generateSHA1Hash:self.textPassword.text];
         
         NSError *error;
         if ([self.managedObjectContext save:&error]) {
+            self.registeredUser = newUser;
             userRegistered = true;
         }
-        
-        
     } else {
-        [self showAlert:@"Password Mismatch" andMessage:@"Please confirm that both passwords are entered correctly." andCancelTitle:@"OK"];
+        [LQUtility showAlert:@"Password Mismatch" andMessage:@"Please confirm that both passwords are entered correctly." andCancelTitle:@"OK"];
     }
 }
 
 - (IBAction)openPrivacyPolicy:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://lifequest.herokuapp.com/privacy"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://getlifequest.herokuapp.com/privacy"]];
 }
 
 
@@ -106,6 +83,44 @@
     }
     
     return NO;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"UserRegisteredSegue"]) {
+        LQMainQuestViewController *mainController = [[LQMainQuestViewController alloc] init];
+        UITabBarController *tabController = [segue destinationViewController];
+        mainController = (LQMainQuestViewController *)[[tabController customizableViewControllers] objectAtIndex:0];
+        [mainController setUser:self.registeredUser];
+        
+        // async the user's data back to the web service:
+        [self postRegisteredUser];
+    }
+}
+
+// Commit the new user to the web service:
+- (void)postRegisteredUser
+{
+    NSError *error;
+    NSDictionary *userDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        self.registeredUser.username, @"username",
+                                        self.registeredUser.password, @"password",
+                                        self.registeredUser.email, @"email", nil];
+                                         
+    
+    NSURL *postUrl = [NSURL URLWithString:@"http://localhost:3000/api/users"];
+    NSMutableURLRequest *webRequest = [[NSMutableURLRequest alloc] initWithURL:postUrl];
+    NSData *webRequestData = [NSJSONSerialization dataWithJSONObject:userDataDictionary options:0 error:&error];
+    NSString *requestDataLength = [NSString stringWithFormat:@"%d", [webRequestData length]];
+    
+    if(!error) {
+        [webRequest setHTTPMethod:@"POST"];
+        [webRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [webRequest setValue:requestDataLength forHTTPHeaderField:@"Content-Length"];
+        [webRequest setHTTPBody: webRequestData];
+        
+        [NSURLConnection connectionWithRequest:webRequest delegate:self];
+    }
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

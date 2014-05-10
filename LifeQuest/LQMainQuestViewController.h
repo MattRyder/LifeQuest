@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQViewController.h"
+#import "Quest.h"
+#import "User.h"
 
-@interface LQMainQuestViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface LQMainQuestViewController : LQViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableArray* _questsThisWeek;
-    NSMutableArray* _questsThisMonth;
+    NSMutableArray* _questsThisMonth;   
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *mainQuestTableView;
+@property (strong, nonatomic) IBOutlet User *currentUser;
+
+@property (strong, nonatomic) IBOutlet UILabel *headerUsernameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *headerExperienceLabel;
+
+- (void)setUser:(User *)currentUser;
 
 @end

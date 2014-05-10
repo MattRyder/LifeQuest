@@ -7,19 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LQViewController.h"
+#import "LQUtility.h"
+#import "Quest.h"
+#import "User.h"
+#import "LQMainQuestViewController.h"
 
-@interface LQRegisterViewController : UIViewController <NSFetchedResultsControllerDelegate> {
+@interface LQRegisterViewController : LQViewController <NSFetchedResultsControllerDelegate> {
     UITextField *activeField;
     BOOL userRegistered;
-    
-    NSFetchedResultsController *fetchedResultsController;
-    NSManagedObjectContext *managedObjectContext;
-    
+
     NSMutableArray *registrationElements;
 }
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) IBOutlet UITextField *textUsername;
 @property (strong, nonatomic) IBOutlet UITextField *textPassword;
@@ -27,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textEmailAddress;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *registrationScrollView;
+@property (strong, nonatomic) IBOutlet User *registeredUser;
 
 - (IBAction)registerButtonPressed:(id)sender;
 - (IBAction)openPrivacyPolicy:(id)sender;

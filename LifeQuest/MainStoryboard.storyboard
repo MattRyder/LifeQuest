@@ -9,18 +9,17 @@
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="CJf-wg-qUs" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="xZR-rF-1Es"/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cP1-W0-AM7">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="LGO-mr-wu9" kind="relationship" relationship="rootViewController" id="Eya-Qt-HMC"/>
+                        <segue destination="cRA-wE-eK5" kind="relationship" relationship="rootViewController" id="qRp-AR-GE8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHX-cw-gyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668" y="-494"/>
+            <point key="canvasLocation" x="-1194" y="-194"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hgL-lt-TNZ">
@@ -151,6 +150,8 @@
                     <navigationItem key="navigationItem" id="Q5j-Jd-DGZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="headerExperienceLabel" destination="1lP-33-Y04" id="0UV-24-1Nm"/>
+                        <outlet property="headerUsernameLabel" destination="nAe-SZ-dRH" id="fjg-ex-sVi"/>
                         <outlet property="mainQuestTableView" destination="bRI-S1-UC8" id="5v7-5h-VGB"/>
                     </connections>
                 </viewController>
@@ -257,7 +258,7 @@
         <!--Register View Controller-->
         <scene sceneID="OKN-1n-dUj">
             <objects>
-                <viewController id="LGO-mr-wu9" customClass="LQRegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerViewController" id="LGO-mr-wu9" customClass="LQRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BLW-XW-9Ta"/>
                         <viewControllerLayoutGuide type="bottom" id="lfQ-WA-TCO"/>
@@ -342,7 +343,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLr-07-VtB">
-                                <rect key="frame" x="0.0" y="434" width="320" height="20"/>
+                                <rect key="frame" x="0.0" y="431" width="320" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="privacy policy">
@@ -365,7 +366,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktr-Kx-40v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-251" y="-494"/>
+            <point key="canvasLocation" x="-193" y="-844"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="d77-GV-CN9">
+            <objects>
+                <viewController storyboardIdentifier="loginViewController" id="cRA-wE-eK5" customClass="LQLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cja-Kz-GMY"/>
+                        <viewControllerLayoutGuide type="bottom" id="4FV-1N-bFk"/>
+                    </layoutGuides>
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" id="ad8-EL-dTQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LifeQuest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGm-oo-Onu">
+                                <rect key="frame" x="0.0" y="393" width="320" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1un-HX-92c">
+                                <rect key="frame" x="40" y="158" width="240" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.setMasksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmH-H9-aUH" userLabel="UsernameTextField">
+                                <rect key="frame" x="55" y="172" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cRA-wE-eK5" id="qVa-OD-8IL"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2UN-ld-Phq" userLabel="PasswordTextField">
+                                <rect key="frame" x="55" y="218" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cRA-wE-eK5" id="WzM-va-hMl"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUG-Gm-MUv">
+                                <rect key="frame" x="128" y="273" width="64" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58416512109999996" green="0.55955129219999999" blue="0.59318768980000003" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed" destination="cRA-wE-eK5" eventType="touchUpInside" id="7ft-GE-Ppb"/>
+                                    <segue destination="gfH-pD-3Jh" kind="push" identifier="LoginToMainSegue" id="ZX4-Rb-QY6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byW-Q5-ySO">
+                                <rect key="frame" x="173" y="325" width="102" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="forgot password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovC-PE-TlV">
+                                <rect key="frame" x="45" y="325" width="47" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LGO-mr-wu9" kind="push" identifier="LoginToRegisterSegue" id="Pxn-5T-pfJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </scrollView>
+                    <navigationItem key="navigationItem" id="fBu-lV-9RH"/>
+                    <connections>
+                        <outlet property="loginScrollView" destination="ad8-EL-dTQ" id="sXx-iI-0GA"/>
+                        <outlet property="textPasswordField" destination="2UN-ld-Phq" id="xP4-qb-TkF"/>
+                        <outlet property="textUsernameField" destination="hmH-H9-aUH" id="seX-aY-ggN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq9-yo-mkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-721" y="-194"/>
         </scene>
     </scenes>
     <resources>
@@ -379,4 +476,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZX4-Rb-QY6"/>
+    </inferredMetricsTieBreakers>
 </document>
