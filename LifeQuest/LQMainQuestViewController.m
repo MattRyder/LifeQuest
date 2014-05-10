@@ -19,9 +19,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    // hide navbar for this view:
+    [[self navigationController] setNavigationBarHidden:YES];
+    
     // Load up the username and total XP in the header:
     self.headerUsernameLabel.text = [NSString stringWithFormat:@"Hello, %@!", self.currentUser.username];
-    self.headerExperienceLabel.text = [NSString stringWithFormat:@"You have %d Experience Points.", 125];
+    self.headerExperienceLabel.text = [NSString stringWithFormat:@"You have %@ Experience Points.", self.currentUser.experience_points];
     
     // Load the purple tiled background image in the header view:
     [self setPurpleBackground:1];

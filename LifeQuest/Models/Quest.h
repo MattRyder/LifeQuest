@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSNumber * experiencePoints;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * dateCreated;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 @property (nonatomic, retain) NSSet *completedUsers;
 @end
 
@@ -26,9 +28,5 @@
 - (void)removeCompletedUsersObject:(User *)value;
 - (void)addCompletedUsers:(NSSet *)values;
 - (void)removeCompletedUsers:(NSSet *)values;
-
-- (Quest *)initWithTitle: (NSString *)title;
-- (Quest *)initWithTitle: (NSString *)title andDescription: (NSString *)description;
-- (Quest *)initWithTitle: (NSString *)title andDescription: (NSString *)description andExperience: (NSNumber *) xp;
 
 @end

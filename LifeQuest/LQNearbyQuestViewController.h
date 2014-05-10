@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "LQViewController.h"
+#import "LQDetailViewController.h"
+#import "LQAPIManager.h"
+#import "LQUtility.h"
+#import "Quest.h"
 
-@interface LQNearbyQuestViewController : LQViewController
+@interface LQNearbyQuestViewController : LQViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate> {
+    CLLocationManager *locationManager;
+    NSMutableArray *nearbyQuests;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *questTable;
 
 @end

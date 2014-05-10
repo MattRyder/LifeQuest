@@ -8,6 +8,8 @@
 
 #import "LQAPIManager.h"
 
+static NSString *host = @"localhost:3000";
+
 @implementation LQAPIManager
 
 - (void)postRegisteredUser:(User *)newUser
@@ -18,8 +20,7 @@
                                         newUser.password, @"password",
                                         newUser.email, @"email", nil];
     
-    
-    NSURL *postUrl = [NSURL URLWithString:@"http://localhost:3000/api/users"];
+    NSURL *postUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/users", host]];
     NSMutableURLRequest *webRequest = [[NSMutableURLRequest alloc] initWithURL:postUrl];
     NSData *webRequestData = [NSJSONSerialization dataWithJSONObject:userDataDictionary options:0 error:&error];
     NSString *requestDataLength = [NSString stringWithFormat:@"%d", [webRequestData length]];
@@ -36,7 +37,34 @@
 
 - (NSDictionary *)queryUserInfoWithUser:(NSString *)username andPassword:(NSString *)passwordHash
 {
-    NSString *uri = [NSString stringWithFormat:@"http://localhost:3000/api/user_info?username=%@&password=%@", username, passwordHash];
+    NSError *error;
+    NSString *uri = [NSString stringWithFormat:@"http://%@/api/user_info?username=%@&password=%@", host, username, passwordHash];
+    NSData *responseData = [self getServerResponseWithUri:uri];
+
+    // Translate the NSData into readable JSON:
+    NSArray *userArray = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&error];
+    if ([userArray count] > 0) {
+        NSDictionary *userData = [userArray objectAtIndex:0];
+        return userData;
+    }
+    
+    return nil;
+}
+
+- (NSArray *)queryLocalQuestsWithLatitude:(double)latitude andLongitude:(double)longitude
+{
+    NSError *error;
+    NSString *uri = [NSString stringWithFormat:@"http://%@/api/local_quests?latitude=%f&longitude=%f", host, latitude, longitude];
+    
+    NSData *responseData = [self getServerResponseWithUri:uri];
+    NSArray *questArray = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&error];
+    
+    return questArray;
+}
+
+// Give it a URI to query, performs the request and returns the response:
+- (NSData *)getServerResponseWithUri:(NSString *)uri
+{
     NSURL *requestUrl = [NSURL URLWithString:uri];
     
     NSMutableURLRequest *webRequest = [NSMutableURLRequest requestWithURL:requestUrl];
@@ -52,10 +80,7 @@
         return nil;
     }
     
-    // Translate the NSData into readable JSON:
-    NSArray *userArray = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:&error];
-    NSDictionary *userData = [userArray objectAtIndex:0];
-    return userData;
+    return responseData;
 }
 
 

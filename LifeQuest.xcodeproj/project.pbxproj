@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C902B958191EC62600A57473 /* LQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C902B957191EC62600A57473 /* LQDetailViewController.m */; };
 		C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */; };
 		C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582376191BC76C006ECC24 /* LQFriendsViewController.m */; };
 		C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958237C191C30C7006ECC24 /* CoreData.framework */; };
@@ -28,6 +29,8 @@
 		C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */; };
 		C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */; };
 		C9F3E5F7191E585100CEBDCA /* LQAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F3E5F6191E585100CEBDCA /* LQAPIManager.m */; };
+		C9F3E5FA191E78F300CEBDCA /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F3E5F9191E78F300CEBDCA /* CoreLocation.framework */; };
+		C9F3E5FC191E7DE300CEBDCA /* Stafford, England.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C9F3E5FB191E7DE300CEBDCA /* Stafford, England.gpx */; };
 		C9FE791D191D43A4006E4645 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791C191D43A4006E4645 /* User.m */; };
 		C9FE7920191DA1B7006E4645 /* LQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */; };
 		C9FE7923191DB64A006E4645 /* LQUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FE7922191DB64A006E4645 /* LQUtility.m */; };
@@ -45,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C902B956191EC62600A57473 /* LQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQDetailViewController.h; sourceTree = "<group>"; };
+		C902B957191EC62600A57473 /* LQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQDetailViewController.m; sourceTree = "<group>"; };
 		C9582372191BC75B006ECC24 /* LQNearbyQuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQNearbyQuestViewController.h; sourceTree = "<group>"; };
 		C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQNearbyQuestViewController.m; sourceTree = "<group>"; };
 		C9582375191BC76C006ECC24 /* LQFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFriendsViewController.h; sourceTree = "<group>"; };
@@ -76,6 +81,8 @@
 		C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LQMainQuestViewController.m; path = LifeQuest/LQMainQuestViewController.m; sourceTree = SOURCE_ROOT; };
 		C9F3E5F5191E585100CEBDCA /* LQAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQAPIManager.h; sourceTree = "<group>"; };
 		C9F3E5F6191E585100CEBDCA /* LQAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQAPIManager.m; sourceTree = "<group>"; };
+		C9F3E5F9191E78F300CEBDCA /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C9F3E5FB191E7DE300CEBDCA /* Stafford, England.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Stafford, England.gpx"; path = "../../../../Downloads/Stafford, England.gpx"; sourceTree = "<group>"; };
 		C9FE791B191D43A4006E4645 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Models/User.h; sourceTree = "<group>"; };
 		C9FE791C191D43A4006E4645 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Models/User.m; sourceTree = "<group>"; };
 		C9FE791E191DA1B7006E4645 /* LQLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQLoginViewController.h; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9F3E5FA191E78F300CEBDCA /* CoreLocation.framework in Frameworks */,
 				C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */,
 				C9EA1AE01918832900CD164B /* CoreGraphics.framework in Frameworks */,
 				C9EA1AE21918832900CD164B /* UIKit.framework in Frameworks */,
@@ -144,6 +152,7 @@
 		C9EA1ADC1918832900CD164B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9F3E5F9191E78F300CEBDCA /* CoreLocation.framework */,
 				C958237C191C30C7006ECC24 /* CoreData.framework */,
 				C9EA1ADD1918832900CD164B /* Foundation.framework */,
 				C9EA1ADF1918832900CD164B /* CoreGraphics.framework */,
@@ -156,6 +165,8 @@
 		C9EA1AE31918832900CD164B /* LifeQuest */ = {
 			isa = PBXGroup;
 			children = (
+				C902B956191EC62600A57473 /* LQDetailViewController.h */,
+				C902B957191EC62600A57473 /* LQDetailViewController.m */,
 				C9FE791E191DA1B7006E4645 /* LQLoginViewController.h */,
 				C9FE791F191DA1B7006E4645 /* LQLoginViewController.m */,
 				C9582375191BC76C006ECC24 /* LQFriendsViewController.h */,
@@ -166,10 +177,10 @@
 				C9EA1B12191884AF00CD164B /* LQMainQuestViewController.m */,
 				C9EA1B0E191884A200CD164B /* LQRegisterViewController.h */,
 				C9EA1B0F191884A200CD164B /* LQRegisterViewController.m */,
-				C9EA1AEF1918832900CD164B /* Images.xcassets */,
 				C9F3E5F8191E585800CEBDCA /* Helper Classes */,
 				C9582378191C164B006ECC24 /* Models */,
 				C9EA1AE41918832900CD164B /* Supporting Files */,
+				C9EA1AEF1918832900CD164B /* Images.xcassets */,
 				C958237E191C3116006ECC24 /* LifeQuest.xcdatamodeld */,
 				C9EA1B0C1918846100CD164B /* MainStoryboard.storyboard */,
 			);
@@ -179,6 +190,7 @@
 		C9EA1AE41918832900CD164B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9F3E5FB191E7DE300CEBDCA /* Stafford, England.gpx */,
 				C9EA1AED1918832900CD164B /* LQAppDelegate.m */,
 				C9EA1AEC1918832900CD164B /* LQAppDelegate.h */,
 				C9EA1AE61918832900CD164B /* InfoPlist.strings */,
@@ -298,6 +310,7 @@
 			files = (
 				C9EA1B0D1918846100CD164B /* MainStoryboard.storyboard in Resources */,
 				C9EA1AE81918832900CD164B /* InfoPlist.strings in Resources */,
+				C9F3E5FC191E7DE300CEBDCA /* Stafford, England.gpx in Resources */,
 				C9EA1AF01918832900CD164B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +332,7 @@
 			files = (
 				C9F3E5F7191E585100CEBDCA /* LQAPIManager.m in Sources */,
 				C9582380191C3116006ECC24 /* LifeQuest.xcdatamodeld in Sources */,
+				C902B958191EC62600A57473 /* LQDetailViewController.m in Sources */,
 				C9EA1B10191884A200CD164B /* LQRegisterViewController.m in Sources */,
 				C9FE791D191D43A4006E4645 /* User.m in Sources */,
 				C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */,

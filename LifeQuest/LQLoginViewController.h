@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
-#import "LQRegisterViewController.h"
+#import "LQMainQuestViewController.h"
 #import "LQAPIManager.h"
 
 @interface LQLoginViewController : LQViewController {

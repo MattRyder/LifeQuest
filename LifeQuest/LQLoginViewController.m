@@ -58,9 +58,13 @@
             storedUser.password = [userData objectForKey:@"password"];
             storedUser.email = [userData objectForKey:@"email"];
             storedUser.experience_points = [userData objectForKey:@"experience_points"];
-        }
-        
+            
+            matchedUser = storedUser;
+            userLoggedIn = true;
+            
+        } else {
         [LQUtility showAlert:@"Login Failed" andMessage:@"Please check the username and password, and try again." andCancelTitle:@"OK"];
+        }
     } else {
         matchedUser = [matchedObjects objectAtIndex:0];
         userLoggedIn = true;
@@ -82,8 +86,9 @@
 {
     if ([segue.identifier isEqualToString:@"LoginToMainSegue"]) {
         LQMainQuestViewController *mainController = [[LQMainQuestViewController alloc] init];
+        NSLog(@"CLASS: %@", [[segue destinationViewController] class]);
         UITabBarController *tabController = [segue destinationViewController];
-        mainController = (LQMainQuestViewController *)[[tabController customizableViewControllers] objectAtIndex:0];
+        mainController = (LQMainQuestViewController *)[[tabController viewControllers] objectAtIndex:0];
         [mainController setUser: matchedUser];
     }
 }

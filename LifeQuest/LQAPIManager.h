@@ -14,5 +14,7 @@
 
 - (void)postRegisteredUser:(User *)newUser;
 - (NSDictionary *)queryUserInfoWithUser:(NSString *)username andPassword:(NSString *)passwordHash;
+- (NSArray *)queryLocalQuestsWithLatitude:(double)latitude andLongitude:(double)longitude;
+- (NSData *)getServerResponseWithUri:(NSString *)uri;
 
 @end

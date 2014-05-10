@@ -30,11 +30,17 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationUsageDescription</key>
+	<string>We&apos;ll use your location to get Quests in your area</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

@@ -47,7 +47,7 @@
     
     newUser.username = self.textUsername.text;
     newUser.email = self.textEmailAddress.text;
-    newUser.experience_points = 0;
+    newUser.experience_points = [NSNumber numberWithInt:0];
     
     // Ensure that no fields are left blank:
     for (UITextField *textField in registrationElements) {
