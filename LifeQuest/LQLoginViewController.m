@@ -85,11 +85,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"LoginToMainSegue"]) {
-        LQMainQuestViewController *mainController = [[LQMainQuestViewController alloc] init];
-        NSLog(@"CLASS: %@", [[segue destinationViewController] class]);
         UITabBarController *tabController = [segue destinationViewController];
-        mainController = (LQMainQuestViewController *)[[tabController viewControllers] objectAtIndex:0];
-        [mainController setUser: matchedUser];
+        [[[tabController viewControllers] objectAtIndex:0] setCurrentUser: matchedUser];
     }
 }
 

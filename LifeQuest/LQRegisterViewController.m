@@ -89,10 +89,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"UserRegisteredSegue"]) {
-        LQMainQuestViewController *mainController = [[LQMainQuestViewController alloc] init];
         UITabBarController *tabController = [segue destinationViewController];
-        mainController = (LQMainQuestViewController *)[[tabController customizableViewControllers] objectAtIndex:0];
-        [mainController setUser:self.registeredUser];
+        [[[tabController customizableViewControllers] objectAtIndex:0] setCurrentUser:self.registeredUser];
         
         // async the user's data back to the web service:
         LQAPIManager *apiManager = [[LQAPIManager alloc] init];
