@@ -28,6 +28,11 @@
     self.descriptionLabel.text = self.detailQuest.desc;
     self.experienceLabel.text = [NSString stringWithFormat:@"%@", self.detailQuest.experiencePoints];
     
+    // Setup the border on the infoBox:
+    self.infoView.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.infoView.layer.borderWidth = 2;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C902B958191EC62600A57473 /* LQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C902B957191EC62600A57473 /* LQDetailViewController.m */; };
 		C902B95A191EF77C00A57473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C902B959191EF77C00A57473 /* MapKit.framework */; };
+		C902B95D191F098700A57473 /* QuestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C902B95C191F098700A57473 /* QuestItem.m */; };
 		C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */; };
 		C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582376191BC76C006ECC24 /* LQFriendsViewController.m */; };
 		C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958237C191C30C7006ECC24 /* CoreData.framework */; };
@@ -52,6 +53,8 @@
 		C902B956191EC62600A57473 /* LQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQDetailViewController.h; sourceTree = "<group>"; };
 		C902B957191EC62600A57473 /* LQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQDetailViewController.m; sourceTree = "<group>"; };
 		C902B959191EF77C00A57473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C902B95B191F098700A57473 /* QuestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestItem.h; path = Models/QuestItem.h; sourceTree = "<group>"; };
+		C902B95C191F098700A57473 /* QuestItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestItem.m; path = Models/QuestItem.m; sourceTree = "<group>"; };
 		C9582372191BC75B006ECC24 /* LQNearbyQuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQNearbyQuestViewController.h; sourceTree = "<group>"; };
 		C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQNearbyQuestViewController.m; sourceTree = "<group>"; };
 		C9582375191BC76C006ECC24 /* LQFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFriendsViewController.h; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 		C9582378191C164B006ECC24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C902B95B191F098700A57473 /* QuestItem.h */,
+				C902B95C191F098700A57473 /* QuestItem.m */,
 				C99E446A191C3DDE00588617 /* Quest.h */,
 				C99E4468191C3D9900588617 /* Quest.m */,
 				C9FE791B191D43A4006E4645 /* User.h */,
@@ -348,6 +353,7 @@
 				C9FE791D191D43A4006E4645 /* User.m in Sources */,
 				C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */,
 				C9EA1B13191884AF00CD164B /* LQMainQuestViewController.m in Sources */,
+				C902B95D191F098700A57473 /* QuestItem.m in Sources */,
 				C9FE7926191DBD92006E4645 /* LQViewController.m in Sources */,
 				C9FE7920191DA1B7006E4645 /* LQLoginViewController.m in Sources */,
 				C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */,
