@@ -545,7 +545,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gdU-x0-qI8">
-                                <rect key="frame" x="0.0" y="182" width="320" height="249"/>
+                                <rect key="frame" x="0.0" y="133" width="320" height="298"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -586,11 +586,16 @@
                                     <outlet property="delegate" destination="Xyc-6O-OAh" id="1yj-Qd-7Yd"/>
                                 </connections>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OzE-tB-AlC">
+                                <rect key="frame" x="0.0" y="65" width="320" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Quests" id="PhX-J3-FM5"/>
                     <connections>
+                        <outlet property="mapView" destination="OzE-tB-AlC" id="aRw-3n-JJQ"/>
                         <outlet property="questTable" destination="gdU-x0-qI8" id="Nec-Ui-eB6"/>
                     </connections>
                 </viewController>

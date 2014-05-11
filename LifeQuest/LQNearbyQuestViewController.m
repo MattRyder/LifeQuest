@@ -17,9 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
+	// Do any additional setup after loading the view.
     [self setupLocation];
+    _mapView.showsUserLocation = YES;
 }
 
 - (void)setupLocation
@@ -47,6 +48,9 @@
 {
     CLLocation *location = (CLLocation *)[locations objectAtIndex:0];
     NSLog(@"Location: %f, %f", location.coordinate.latitude, location.coordinate.longitude);
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000);
+    [_mapView setRegion:region animated:YES];
     
     LQAPIManager *apiManager = [[LQAPIManager alloc] init];
     NSArray *quests = [apiManager queryLocalQuestsWithLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
