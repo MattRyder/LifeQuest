@@ -35,6 +35,28 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MainToDetailViewSegue"]) {
+        NSIndexPath *indexPath = [self.mainQuestTableView indexPathForSelectedRow];
+        
+        Quest *selectedQuest;
+        
+        switch (indexPath.section) {
+            case 0:
+                selectedQuest = questsThisWeek[indexPath.row];
+                break;
+            case 1:
+                selectedQuest = questsThisMonth[indexPath.row];
+                break;
+            default:
+                break;
+        }
+        
+        [[segue destinationViewController] setDetailQuest:selectedQuest];
+    }
+}
+
 // Get a cell at a section and row of the Quest Table
 - (UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
@@ -52,11 +74,11 @@
     
     if(indexPath.section == 0)
     {
-        cellQuest = [_questsThisWeek objectAtIndex:indexPath.row];
+        cellQuest = [questsThisWeek objectAtIndex:indexPath.row];
     }
     else
     {
-        cellQuest = [_questsThisMonth objectAtIndex:indexPath.row];
+        cellQuest = [questsThisMonth objectAtIndex:indexPath.row];
     }
     
     ((UILabel *)[cell viewWithTag:2]).text = cellQuest.title;
@@ -95,21 +117,15 @@
     NSInteger rows = 0;
     switch (section) {
         case 0:
-            rows = [_questsThisWeek count];
+            rows = [questsThisWeek count];
             break;
         case 1:
-            rows = [_questsThisMonth count];
+            rows = [questsThisMonth count];
             break;
     }
     
     return rows;
 }
-
-- (void)setUser:(User *)currentUser
-{
-    self.currentUser = currentUser;
-}
-
 
 // Load all the data from the JSON/static data, whatever here
 - (void) setupQuestTable

@@ -86,7 +86,9 @@
 {
     if ([segue.identifier isEqualToString:@"LoginToMainSegue"]) {
         UITabBarController *tabController = [segue destinationViewController];
-        [[[tabController viewControllers] objectAtIndex:0] setCurrentUser: matchedUser];
+        UINavigationController *navigationController = [[tabController viewControllers] objectAtIndex:0];
+        LQMainQuestViewController *mainViewController = [[navigationController viewControllers] objectAtIndex:0];
+        [mainViewController setCurrentUser: matchedUser];
     }
 }
 

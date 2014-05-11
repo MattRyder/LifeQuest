@@ -90,7 +90,9 @@
 {
     if ([segue.identifier isEqualToString:@"UserRegisteredSegue"]) {
         UITabBarController *tabController = [segue destinationViewController];
-        [[[tabController customizableViewControllers] objectAtIndex:0] setCurrentUser:self.registeredUser];
+        UINavigationController *navigationController = [[tabController viewControllers] objectAtIndex:0];
+        LQMainQuestViewController *mainViewController = [[navigationController viewControllers] objectAtIndex:0];
+        [mainViewController setCurrentUser:self.registeredUser];
         
         // async the user's data back to the web service:
         LQAPIManager *apiManager = [[LQAPIManager alloc] init];

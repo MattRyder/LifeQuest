@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C902B958191EC62600A57473 /* LQDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C902B957191EC62600A57473 /* LQDetailViewController.m */; };
+		C902B95A191EF77C00A57473 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C902B959191EF77C00A57473 /* MapKit.framework */; };
 		C9582374191BC75B006ECC24 /* LQNearbyQuestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */; };
 		C9582377191BC76C006ECC24 /* LQFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9582376191BC76C006ECC24 /* LQFriendsViewController.m */; };
 		C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C958237C191C30C7006ECC24 /* CoreData.framework */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		C902B956191EC62600A57473 /* LQDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQDetailViewController.h; sourceTree = "<group>"; };
 		C902B957191EC62600A57473 /* LQDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQDetailViewController.m; sourceTree = "<group>"; };
+		C902B959191EF77C00A57473 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C9582372191BC75B006ECC24 /* LQNearbyQuestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQNearbyQuestViewController.h; sourceTree = "<group>"; };
 		C9582373191BC75B006ECC24 /* LQNearbyQuestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQNearbyQuestViewController.m; sourceTree = "<group>"; };
 		C9582375191BC76C006ECC24 /* LQFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFriendsViewController.h; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				C958237D191C30C7006ECC24 /* CoreData.framework in Frameworks */,
 				C9EA1AE01918832900CD164B /* CoreGraphics.framework in Frameworks */,
 				C9EA1AE21918832900CD164B /* UIKit.framework in Frameworks */,
+				C902B95A191EF77C00A57473 /* MapKit.framework in Frameworks */,
 				C9EA1ADE1918832900CD164B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +155,7 @@
 		C9EA1ADC1918832900CD164B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C902B959191EF77C00A57473 /* MapKit.framework */,
 				C9F3E5F9191E78F300CEBDCA /* CoreLocation.framework */,
 				C958237C191C30C7006ECC24 /* CoreData.framework */,
 				C9EA1ADD1918832900CD164B /* Foundation.framework */,
@@ -280,6 +284,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = MattRyder;
 				TargetAttributes = {
+					C9EA1AD91918832900CD164B = {
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					C9EA1AF41918832900CD164B = {
 						TestTargetID = C9EA1AD91918832900CD164B;
 					};
