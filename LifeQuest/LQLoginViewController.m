@@ -57,7 +57,12 @@
             storedUser.username = [userData objectForKey:@"username"];
             storedUser.password = [userData objectForKey:@"password"];
             storedUser.email = [userData objectForKey:@"email"];
-            storedUser.experience_points = [userData objectForKey:@"experience_points"];
+            
+            if ([userData objectForKey:@"experience_points"] != (id)[NSNull null]) {
+                storedUser.experience_points = [userData objectForKey:@"experience_points"];
+            } else {
+                storedUser.experience_points = [NSNumber numberWithInteger:0];
+            }
             
             matchedUser = storedUser;
             userLoggedIn = true;

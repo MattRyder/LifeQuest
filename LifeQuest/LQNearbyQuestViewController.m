@@ -59,6 +59,14 @@
     nearbyQuests = [self parseDataIntoQuests:quests];
     [self.questTable reloadData];
     
+    // Load the Quests into the map:
+    for (Quest *qst in nearbyQuests) {
+        MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
+        pin.coordinate = CLLocationCoordinate2DMake(qst.latitude, qst.longitude);
+        pin.title = qst.title;
+        [_mapView addAnnotation:pin];
+    }
+    
     // Turn off location now, we've got the locale:
     [locationManager stopUpdatingLocation];
 }

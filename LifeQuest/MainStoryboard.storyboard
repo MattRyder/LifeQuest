@@ -450,7 +450,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H1H-Ag-Adn">
-                                <rect key="frame" x="25" y="246" width="280" height="2"/>
+                                <rect key="frame" x="20" y="245" width="280" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 / 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3p-0V-uxV">
@@ -477,6 +477,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bv7-3b-rgw">
+                                <rect key="frame" x="20" y="294" width="285" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -486,6 +491,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="bQN-1b-AS1" id="cSJ-Mj-MuT"/>
                         <outlet property="experienceLabel" destination="pqy-76-7Ze" id="8ZR-0V-STV"/>
+                        <outlet property="infoView" destination="Bv7-3b-rgw" id="gmq-f3-LaM"/>
                         <outlet property="progressView" destination="H1H-Ag-Adn" id="iLO-Wg-Qxn"/>
                         <outlet property="titleLabel" destination="g8J-wp-gys" id="Hdi-oj-pAm"/>
                     </connections>

@@ -23,7 +23,7 @@ static NSString *host = @"localhost:3000";
     NSURL *postUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/users", host]];
     NSMutableURLRequest *webRequest = [[NSMutableURLRequest alloc] initWithURL:postUrl];
     NSData *webRequestData = [NSJSONSerialization dataWithJSONObject:userDataDictionary options:0 error:&error];
-    NSString *requestDataLength = [NSString stringWithFormat:@"%d", [webRequestData length]];
+    NSString *requestDataLength = [NSString stringWithFormat:@"%lu", (unsigned long)[webRequestData length]];
     
     if(!error) {
         [webRequest setHTTPMethod:@"POST"];
