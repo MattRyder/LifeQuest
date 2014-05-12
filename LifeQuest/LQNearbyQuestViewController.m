@@ -77,18 +77,35 @@
     NSMutableArray *parsedQuests = [[NSMutableArray alloc] init];
     
     for (NSDictionary *qd in questDictionaries) {
-        Quest *quest = (Quest*)[NSEntityDescription
-                                insertNewObjectForEntityForName:@"Quest"
-                                inManagedObjectContext:[self managedObjectContext]];
         
-        quest.title = [qd objectForKey:@"title"];
-        quest.desc = [qd objectForKey:@"desc"];
-        quest.experiencePoints = [qd objectForKey:@"points"];
-        quest.latitude = [[qd objectForKey:@"latitude"] doubleValue];
-        quest.longitude = [[qd objectForKey:@"longitude"] doubleValue];
-        quest.dateCreated = [qd objectForKey:@"dateCreated"];
+        // Check if the Quest doesn't exist in the database already:
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Quest" inManagedObjectContext:[self managedObjectContext]];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        [fetchRequest setEntity:entityDescription];
         
-        [parsedQuests addObject:quest];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title = %@) AND (dateCreated = %@)", [qd objectForKey:@"title"], [qd objectForKey:@"dateCreated"]];
+        [fetchRequest setPredicate:predicate];
+        
+        NSError *error;
+        NSArray *matchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        
+        if ([matchedObjects count] == 0) {
+            Quest *quest = (Quest*)[NSEntityDescription
+                                    insertNewObjectForEntityForName:@"Quest"
+                                    inManagedObjectContext:[self managedObjectContext]];
+            
+            quest.title = [qd objectForKey:@"title"];
+            quest.desc = [qd objectForKey:@"desc"];
+            quest.experiencePoints = [qd objectForKey:@"points"];
+            quest.latitude = [[qd objectForKey:@"latitude"] doubleValue];
+            quest.longitude = [[qd objectForKey:@"longitude"] doubleValue];
+            quest.dateCreated = [qd objectForKey:@"dateCreated"];
+            quest.visitsRequired = [qd objectForKey:@"required_visits"];
+            
+            [parsedQuests addObject:quest];
+        } else {
+            [parsedQuests addObject:[matchedObjects objectAtIndex:0]];
+        }
     }
     
     return parsedQuests;
@@ -100,6 +117,12 @@
         NSIndexPath *indexPath = [self.questTable indexPathForSelectedRow];
         Quest *selectedQuest = nearbyQuests[indexPath.row];
         [[segue destinationViewController] setDetailQuest:selectedQuest];
+        
+        // Massive hack to get the current user, basically pull it from the existing Main View Controller (horrific way to do this!)
+        UITabBarController *tabController = (UITabBarController *)[self.parentViewController parentViewController];
+        UINavigationController *navigationController = [[tabController viewControllers] objectAtIndex:0];
+        LQMainQuestViewController *mainViewController = [[navigationController viewControllers] objectAtIndex:0];
+        [[segue destinationViewController] setCurrentUser:[mainViewController currentUser]];
     }
 }
 
@@ -114,8 +137,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if(cell == nil)
-    {
+    if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -134,11 +156,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    if ([error code] == kCLErrorDenied) {
-        return; // already handled in setupLocation above
-    }
-    
-    [LQUtility showAlert:@"Error" andMessage:@"Failed to get your location." andCancelTitle:@"OK"];
+    NSLog(@"NearbyQuests: Failed to get user's location!");
 }
 
 - (void)didReceiveMemoryWarning

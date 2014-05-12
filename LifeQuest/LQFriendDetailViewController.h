@@ -1,20 +1,20 @@
 //
-//  LQMainQuestViewController.h
+//  LQFriendDetailViewController.h
 //  LifeQuest
 //
-//  Created by matt on 06/05/2014.
+//  Created by matt on 12/05/2014.
 //  Copyright (c) 2014 MattRyder. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "LQViewController.h"
-#import "LQDetailViewController.h"
+#import "QuestItem.h"
 #import "Quest.h"
 #import "User.h"
 
-@interface LQMainQuestViewController : LQViewController <UITableViewDataSource, UITableViewDelegate> {
+
+@interface LQFriendDetailViewController : LQViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray* questsThisWeek;
-    NSArray* questsThisMonth;   
+    NSArray* questsThisMonth;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *headerUsernameLabel;
@@ -22,5 +22,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *mainQuestTableView;
 
 @property (strong, nonatomic) User *currentUser;
+
 
 @end

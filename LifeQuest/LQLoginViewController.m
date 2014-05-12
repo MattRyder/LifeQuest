@@ -44,32 +44,16 @@
     NSArray *matchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if ([matchedObjects count] == 0) {
-        
-        // Ok, maybe they're logging in on a new device? Let's query the JSON API for this user:
         LQAPIManager *apiManager = [[LQAPIManager alloc] init];
-        NSDictionary *userData = [apiManager queryUserInfoWithUser:self.textUsernameField.text andPassword:hashedPassword];
         
-        // If we've got a user, lets store it locally:
-        if (userData != nil) {
-            User *storedUser = (User*)[NSEntityDescription
-                                    insertNewObjectForEntityForName:@"User"
-                                    inManagedObjectContext:[self managedObjectContext]];
-            storedUser.username = [userData objectForKey:@"username"];
-            storedUser.password = [userData objectForKey:@"password"];
-            storedUser.email = [userData objectForKey:@"email"];
-            
-            if ([userData objectForKey:@"experience_points"] != (id)[NSNull null]) {
-                storedUser.experience_points = [userData objectForKey:@"experience_points"];
-            } else {
-                storedUser.experience_points = [NSNumber numberWithInteger:0];
-            }
-            
-            matchedUser = storedUser;
-            userLoggedIn = true;
-            
-        } else {
-        [LQUtility showAlert:@"Login Failed" andMessage:@"Please check the username and password, and try again." andCancelTitle:@"OK"];
+        matchedUser = [apiManager getUserFromRemoteDatabaseWithUsername:self.textUsernameField.text andPassword:hashedPassword managedObjectContext:[self managedObjectContext]];
+        
+        if (matchedUser == nil) {
+            [LQUtility showAlert:@"Login Failed" andMessage:@"Please check the username and password, and try again." andCancelTitle:@"OK"];
         }
+        
+        userLoggedIn = true;
+        
     } else {
         matchedUser = [matchedObjects objectAtIndex:0];
         userLoggedIn = true;
@@ -91,9 +75,14 @@
 {
     if ([segue.identifier isEqualToString:@"LoginToMainSegue"]) {
         UITabBarController *tabController = [segue destinationViewController];
+        
         UINavigationController *navigationController = [[tabController viewControllers] objectAtIndex:0];
         LQMainQuestViewController *mainViewController = [[navigationController viewControllers] objectAtIndex:0];
-        [mainViewController setCurrentUser: matchedUser];
+        [mainViewController setCurrentUser:matchedUser];
+        
+        UINavigationController *friendNavController = [[tabController viewControllers] objectAtIndex:2];
+        LQFriendsViewController *friendsViewController = [[friendNavController viewControllers] objectAtIndex:0];
+        [friendsViewController setCurrentUser:matchedUser];
     }
 }
 

@@ -10,6 +10,7 @@
 
 @implementation LQUtility
 
+// Generates an SHA-1 hash for a string (password etc)
 + (NSString *)generateSHA1Hash:(NSString *)base
 {
     NSData *passwordData = [base dataUsingEncoding:NSUTF8StringEncoding];
@@ -26,6 +27,7 @@
     return hashedPass;
 }
 
+// Shows an alert popup to the user with a title, message and "ok, whatever" cancel text.
 + (void) showAlert:(NSString *)title andMessage:(NSString *)message andCancelTitle:(NSString *)cancelTitle
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message

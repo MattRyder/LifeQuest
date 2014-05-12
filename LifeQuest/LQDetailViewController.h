@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "LQAPIManager.h"
+#import "LQUtility.h"
 #import "LQViewController.h"
-#import "Quest.h"
+#import "LQMainQuestViewController.h"
+#import "QuestItem.h"
 
-@interface LQDetailViewController : LQViewController
+@interface LQDetailViewController : LQViewController <CLLocationManagerDelegate> {
+    CLLocationManager *locationManager;
+    CLCircularRegion *questRegion;
+}
 
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
@@ -18,8 +25,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *experienceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *progressLabel;
+@property (strong, nonatomic) IBOutlet UIButton *checkInButton;
 
+@property (strong, nonatomic) User *currentUser;
+@property (strong, nonatomic) Quest *detailQuest;
+@property (strong, nonatomic) QuestItem *questItem;
 
-@property (strong, nonatomic) IBOutlet Quest *detailQuest;
+- (IBAction)checkInButtonPressed:(id)sender;
 
 @end

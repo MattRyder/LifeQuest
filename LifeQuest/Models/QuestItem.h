@@ -14,7 +14,8 @@
 @interface QuestItem : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * visits;
-@property (nonatomic, retain) NSNumber * totalRequiredVisits;
+@property (nonatomic) BOOL completed;
+@property (nonatomic, retain) NSDate * dateCompleted;
 @property (nonatomic, retain) User *linked_user;
 @property (nonatomic, retain) Quest *linked_quest;
 

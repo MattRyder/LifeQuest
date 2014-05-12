@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
 #import "LQMainQuestViewController.h"
+#import "LQFriendsViewController.h"
 #import "LQAPIManager.h"
 
 @interface LQLoginViewController : LQViewController {
@@ -20,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *loginScrollView;
 @property (strong, nonatomic) IBOutlet UITextField *textUsernameField;
 @property (strong, nonatomic) IBOutlet UITextField *textPasswordField;
-
 
 - (IBAction) loginButtonPressed;
 

@@ -14,7 +14,8 @@
 @implementation QuestItem
 
 @dynamic visits;
-@dynamic totalRequiredVisits;
+@dynamic completed;
+@dynamic dateCompleted;
 @dynamic linked_user;
 @dynamic linked_quest;
 

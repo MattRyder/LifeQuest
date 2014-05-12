@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Friend" representedClassName="Friend" syncable="YES">
+        <relationship name="friendAdded" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="addedBy" inverseEntity="User" syncable="YES"/>
+        <relationship name="friendOrigin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="Quest" representedClassName="Quest" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,22 +11,29 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitsRequired" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="usersCompleted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestItem" inverseName="linked_quest" inverseEntity="QuestItem" syncable="YES"/>
     </entity>
     <entity name="QuestItem" representedClassName="QuestItem" syncable="YES">
-        <attribute name="totalRequiredVisits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dateCompleted" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="visits" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="linked_quest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" syncable="YES"/>
-        <relationship name="linked_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="linked_quest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quest" inverseName="usersCompleted" inverseEntity="Quest" syncable="YES"/>
+        <relationship name="linked_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="completedQuests" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="experience_points" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="addedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="friendAdded" inverseEntity="Friend" syncable="YES"/>
+        <relationship name="completedQuests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestItem" inverseName="linked_user" inverseEntity="QuestItem" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="friendOrigin" inverseEntity="Friend" syncable="YES"/>
     </entity>
     <elements>
         <element name="Quest" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
         <element name="QuestItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Friend" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

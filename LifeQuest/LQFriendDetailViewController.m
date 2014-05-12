@@ -1,45 +1,39 @@
 //
-//  LQMainQuestViewController.m
+//  LQFriendDetailViewController.m
 //  LifeQuest
 //
-//  Created by matt on 06/05/2014.
+//  Created by matt on 12/05/2014.
 //  Copyright (c) 2014 MattRyder. All rights reserved.
 //
 
-#import "LQMainQuestViewController.h"
+#import "LQFriendDetailViewController.h"
 
-@interface LQMainQuestViewController ()
+@interface LQFriendDetailViewController ()
 
 @end
 
-@implementation LQMainQuestViewController
+@implementation LQFriendDetailViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // Load the purple tiled background image in the header view:
-    [self setPurpleBackground:1];
-    
     [self setupInterfaceLabels];
     [self setupQuestTable];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)didReceiveMemoryWarning
 {
-    // Ensure the NavBar isn't showing:
-    [[self navigationController] setNavigationBarHidden:YES];
-    [self setupInterfaceLabels];
-    [self setupQuestTable];
-    [self.mainQuestTableView reloadData];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)setupInterfaceLabels
 {
     // Load up the username and total XP in the header:
-    self.headerUsernameLabel.text = [NSString stringWithFormat:@"Hello, %@!", self.currentUser.username];
-    self.headerExperienceLabel.text = [NSString stringWithFormat:@"You have %@ Experience Points.", self.currentUser.experience_points];
+    self.headerUsernameLabel.text = [NSString stringWithFormat:@"%@", self.currentUser.username];
+    self.headerExperienceLabel.text = [NSString stringWithFormat:@"%@", self.currentUser.experience_points];
 }
 
 - (void)setupQuestTable
@@ -49,52 +43,23 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:entityDescription];
     
-    NSPredicate *weekPredicate = [NSPredicate predicateWithFormat:@"(linked_user == %@) AND (dateCompleted > %@ AND dateCompleted < %@)",
-                              self.currentUser, [[NSDate date] dateByAddingTimeInterval:-604800], [NSDate date]];
-    NSPredicate *monthPredicate = [NSPredicate predicateWithFormat:@"(linked_user == %@) AND (dateCompleted > %@ AND dateCompleted < %@)",
-                                  self.currentUser, [[NSDate date] dateByAddingTimeInterval:-2.62974e6], [NSDate date]];
+    NSPredicate *weekPredicate = [NSPredicate predicateWithFormat:@"(linked_user = %@) AND (dateCompleted > %@ AND dateCompleted < %@)",
+                                  self.currentUser, [[NSDate date] dateByAddingTimeInterval:-604800], [NSDate date]];
+    NSPredicate *monthPredicate = [NSPredicate predicateWithFormat:@"(linked_user = %@) AND (dateCompleted > %@ AND dateCompleted < %@)",
+                                   self.currentUser, [[NSDate date] dateByAddingTimeInterval:-2.62974e6], [NSDate date]];
+    
     [fetchRequest setPredicate:weekPredicate];
-    
-    
     questsThisWeek = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     [fetchRequest setPredicate:monthPredicate];
     questsThisMonth = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"MainToDetailViewSegue"]) {
-        NSIndexPath *indexPath = [self.mainQuestTableView indexPathForSelectedRow];
-        
-        Quest *selectedQuest;
-        
-        switch (indexPath.section) {
-            case 0:
-                selectedQuest = [questsThisWeek[indexPath.row] linked_quest];
-                break;
-            case 1:
-                selectedQuest = [questsThisMonth[indexPath.row] linked_quest];
-                break;
-            default:
-                break;
-        }
-        
-        [[segue destinationViewController] setDetailQuest:selectedQuest];
-        [[segue destinationViewController] setCurrentUser:self.currentUser];
-    }
-}
-
 // Get a cell at a section and row of the Quest Table
 - (UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"QuestCellIdentifier";
-
+    static NSString *CellIdentifier = @"FriendQuestCellIdentifier";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil)
@@ -116,7 +81,7 @@
     ((UILabel *)[cell viewWithTag:2]).text = cellQuest.title;
     ((UILabel *)[cell viewWithTag:3]).text = cellQuest.desc;
     ((UILabel *)[cell viewWithTag:4]).text = [NSString stringWithFormat:@"%@", cellQuest.experiencePoints];
-
+    
     return cell;
 }
 
@@ -158,4 +123,7 @@
     
     return rows;
 }
+
+
+
 @end

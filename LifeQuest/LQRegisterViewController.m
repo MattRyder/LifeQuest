@@ -92,7 +92,9 @@
         UITabBarController *tabController = [segue destinationViewController];
         UINavigationController *navigationController = [[tabController viewControllers] objectAtIndex:0];
         LQMainQuestViewController *mainViewController = [[navigationController viewControllers] objectAtIndex:0];
+        LQFriendsViewController *friendsViewController = [[navigationController viewControllers] objectAtIndex:2];
         [mainViewController setCurrentUser:self.registeredUser];
+        [friendsViewController setCurrentUser:self.registeredUser];
         
         // async the user's data back to the web service:
         LQAPIManager *apiManager = [[LQAPIManager alloc] init];

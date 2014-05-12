@@ -13,8 +13,17 @@
 @interface LQAPIManager : NSObject
 
 - (void)postRegisteredUser:(User *)newUser;
+
+- (void)updateExistingUser:(User *)existingUser;
+
 - (NSDictionary *)queryUserInfoWithUser:(NSString *)username andPassword:(NSString *)passwordHash;
+
+- (User *)getUserFromRemoteDatabaseWithUsername:(NSString *)username andManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
+- (User *)getUserFromRemoteDatabaseWithUsername:(NSString *)username andPassword:(NSString *)hashedPassword managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
 - (NSArray *)queryLocalQuestsWithLatitude:(double)latitude andLongitude:(double)longitude;
+
 - (NSData *)getServerResponseWithUri:(NSString *)uri;
 
 @end

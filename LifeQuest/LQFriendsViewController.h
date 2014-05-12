@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
+#import "LQAPIManager.h"
+#import "User.h"
+#import "Friend.h"
 
-@interface LQFriendsViewController : LQViewController
+
+@interface LQFriendsViewController : LQViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
+    NSArray *friends;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *friendTable;
+
+@property (strong, nonatomic) User* currentUser;
+
+- (IBAction)addFriendClicked:(id)sender;
 
 @end

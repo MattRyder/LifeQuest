@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LQViewController.h"
 #import "LQMainQuestViewController.h"
+#import "LQFriendsViewController.h"
 #import "LQAPIManager.h"
 #import "Quest.h"
 
@@ -26,7 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textEmailAddress;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *registrationScrollView;
-@property (strong, nonatomic) IBOutlet User *registeredUser;
+@property (strong, nonatomic) User *registeredUser;
 
 - (IBAction)registerButtonPressed:(id)sender;
 - (IBAction)openPrivacyPolicy:(id)sender;
